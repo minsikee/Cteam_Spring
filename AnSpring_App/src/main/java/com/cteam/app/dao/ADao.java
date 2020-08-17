@@ -1,4 +1,4 @@
-package com.csslect.app.dao;
+package com.cteam.app.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -14,11 +14,11 @@ import javax.sql.DataSource;
 import com.csslect.app.dto.ANDto;
 import com.csslect.app.dto.MemberDTO;
 
-public class ANDao {
+public class ADao {
 
 	DataSource dataSource;
 
-	public ANDao() {
+	public ADao() {
 		try {
 			Context context = new InitialContext();
 			dataSource = (DataSource) context.lookup("java:/comp/env/cteam");	//context name 이랑 맞춰줘야함 team01로
