@@ -2805,3 +2805,57 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:06:08.513
 !MESSAGE executing callback sts4.classpath.ekqTtaQF SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.362
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.367
+!MESSAGE classpath=53 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.383
+!MESSAGE buffering callback sts4.classpath.ekqTtaQF AnSpring_Cteam false 53
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.383
+!MESSAGE executing callback sts4.classpath.ekqTtaQF 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.454
+!MESSAGE executing callback sts4.classpath.ekqTtaQF SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.791
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.850
+!MESSAGE classpath=77 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.944
+!MESSAGE buffering callback sts4.classpath.ekqTtaQF AnSpring_App false 77
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.947
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.952
+!MESSAGE classpath=53 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.967
+!MESSAGE buffering callback sts4.classpath.ekqTtaQF AnSpring_Cteam false 53
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.968
+!MESSAGE executing callback sts4.classpath.ekqTtaQF 2 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:07.988
+!MESSAGE executing callback sts4.classpath.ekqTtaQF SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:11.460
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:11.479
+!MESSAGE classpath=77 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:11.533
+!MESSAGE buffering callback sts4.classpath.ekqTtaQF AnSpring_Cteam false 77
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:11.533
+!MESSAGE executing callback sts4.classpath.ekqTtaQF 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:26:11.549
+!MESSAGE executing callback sts4.classpath.ekqTtaQF SUCCESS [done]
