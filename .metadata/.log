@@ -4244,3 +4244,48 @@ org.eclipse.core.runtime.CoreException: Cannot determine URI for '/AnSpring_App/
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2020-08-17 16:18:36.038
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:07.493
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:07.506
+!MESSAGE classpath=77 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:07.526
+!MESSAGE buffering callback sts4.classpath.ekqTtaQF AnSpring_App false 77
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:07.526
+!MESSAGE executing callback sts4.classpath.ekqTtaQF 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:07.600
+!MESSAGE executing callback sts4.classpath.ekqTtaQF SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:07.947
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:07.947
+!MESSAGE classpath=0 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:07.947
+!MESSAGE buffering callback sts4.classpath.ekqTtaQF AnSpring_Cteam false 0
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:07.948
+!MESSAGE executing callback sts4.classpath.ekqTtaQF 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:07.971
+!MESSAGE executing callback sts4.classpath.ekqTtaQF SUCCESS [done]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:08.213
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:08.222
+!MESSAGE classpath=1 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:08.223
+!MESSAGE buffering callback sts4.classpath.ekqTtaQF AnSpring_Cteam false 1
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:08.223
+!MESSAGE executing callback sts4.classpath.ekqTtaQF 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-08-18 11:21:08.227
+!MESSAGE executing callback sts4.classpath.ekqTtaQF SUCCESS [done]
