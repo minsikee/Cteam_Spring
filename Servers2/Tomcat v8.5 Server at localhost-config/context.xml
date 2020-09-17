@@ -25,6 +25,7 @@
     <!--
     <Manager pathname="" />
     -->
+    
     <Resource auth="Container"
         driverClassName="oracle.jdbc.driver.OracleDriver"
         maxActive="50"
@@ -35,7 +36,4 @@
         url="jdbc:oracle:thin:@192.168.0.200:1521:xe"
         username="cteam"
     />  
-    
-    
-    
 </Context>

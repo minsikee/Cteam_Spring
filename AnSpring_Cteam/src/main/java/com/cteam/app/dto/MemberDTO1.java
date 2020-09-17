@@ -5,19 +5,20 @@ public class MemberDTO1 {
 	member_question,member_answer,member_phonenum;
 
 	// �α����Ҷ� ��й�ȣ ���� ������� ������
-	public MemberDTO1(String member_id, String member_name, 
-			String member_question,String member_answer,String member_phonenum) {
-		super();
-		this.member_id = member_id;
-		this.member_name = member_name;
-		this.member_question =member_question ;
-		this.member_answer=member_answer;
-		this.member_phonenum=member_phonenum;
-		
-	}
-
+	/*
+	 * public MemberDTO1(String member_id, String member_pw,String member_name,
+	 * String member_question,String member_answer,String member_phonenum) {
+	 * super(); this.member_id = member_id; this.member_pw = member_pw;
+	 * this.member_name = member_name; this.member_question =member_question ;
+	 * this.member_answer=member_answer; this.member_phonenum=member_phonenum;
+	 * 
+	 * }
+	 */
 	// �����ͺ��̽��� ������� �߰��Ҷ�
-	public MemberDTO1(String member_id, String member_name, String member_pw,
+	
+
+	
+	public MemberDTO1(String member_id, String member_pw, String member_name,
 			String member_question,String member_answer,String member_phonenum) {
 		super();
 		this.member_id = member_id;
