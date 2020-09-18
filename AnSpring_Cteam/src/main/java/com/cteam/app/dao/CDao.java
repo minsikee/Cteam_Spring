@@ -372,8 +372,61 @@ public int cPetbarInsertMulti(String date,String memo,String icon, String hour, 
 
 	}
 	
-    
+	//진 - 업데이트
+	public int cModify(String member_id, String member_pw, String member_name, String member_question, String member_answer, String member_phonenum) {
+		Connection connection = null;
+		
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;
+		
+		String pw_return = null;
+		
+		int state = -1;
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "update memberjoin set member_pw='"+member_pw+"', member_question ='"+member_question+"',"
+					+"member_answer='"+member_answer+"', member_phonenum='"+member_phonenum+"' where member_id ='"+member_id+"'";
+			
+			prepareStatement = connection.prepareStatement(query);
+			state = prepareStatement.executeUpdate();
+
+
+			if (state > 0) {
+				System.out.println("수정1성공");
+				
+			} else {
+				System.out.println("수정1실패");
+			}
+	
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (prepareStatement != null) {
+					prepareStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+	
+			}
+		}
+		
+		return state;
+	}
+  
+	
 }
+  
+
     
     
 

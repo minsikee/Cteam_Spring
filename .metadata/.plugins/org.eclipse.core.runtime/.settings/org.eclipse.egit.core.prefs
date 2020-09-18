@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=D\:\\cteam_spring2\\.git;
-GitRepositoriesView.GitDirectories.relative=.git;
+GitRepositoriesView.GitDirectories=D\:\\Git_Cteam_Spring\\Cteam_Spring\\.git;D\:\\cteam_spring\\.git;
+GitRepositoriesView.GitDirectories.relative=.git;D\:\\cteam_spring\\.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
