@@ -164,6 +164,7 @@ public class SuanController {
 	public String cPwUpdate(HttpServletRequest req, Model model){
 		System.out.println("cPwUpdate()");
 		
+		
 		try {
 			req.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
