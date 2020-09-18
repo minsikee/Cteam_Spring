@@ -13973,3 +13973,164 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 !MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
 !SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:31:40.692
 !MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:45:19.930
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:45:19.931
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:45:43.576
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:45:43.576
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2020-09-18 16:45:48.008
+!MESSAGE Connection to http://jope.ow2.org/update/jope/site.xml failed on jope.ow2.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: jope.ow2.org
+	at java.net.Inet6AddressImpl.lookupAllHostAddr(Native Method)
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source)
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source)
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:374)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2020-09-18 16:45:48.219
+!MESSAGE Connection to http://jope.ow2.org/update/jope/p2.index failed on jope.ow2.org. Retry attempt 0 started
+!STACK 0
+java.net.UnknownHostException: jope.ow2.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:112)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:374)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:393)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:47:45.715
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:47:45.715
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:01.825
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:01.825
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:08.647
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:08.647
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:19.079
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:19.079
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:38.628
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:38.628
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:39.447
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:39.447
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:47.463
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:48:47.463
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:49:14.115
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:49:14.115
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:49:18.675
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:49:18.675
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:49:42.400
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:49:42.400
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:49:56.506
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:49:56.506
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:50:03.435
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:50:03.435
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:50:03.788
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:50:03.788
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:50:15.224
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:50:15.224
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:50:28.728
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:50:28.728
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:52:14.999
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:52:14.999
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:52:19.407
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:52:19.407
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:52:42.886
+!MESSAGE Could not publish server configuration for Tomcat v8.5 Server at localhost.
+!SUBENTRY 1 org.eclipse.jst.server.tomcat.core 4 0 2020-09-18 16:52:42.886
+!MESSAGE Multiple Contexts have a path of "/app".
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-09-18 17:07:27.349
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-09-18 17:07:27.408
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-09-18 17:07:29.053
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2020-09-18 17:07:29.054
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
