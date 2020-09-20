@@ -28,6 +28,10 @@ import com.cteam.app.command.AnFindCommand;
 import com.cteam.app.command.AnLoginCommand;
 import com.cteam.app.command.AnPwFindCommand;
 import com.cteam.app.command.AnPwUpdateCommand;
+import com.cteam.app.command.CalDeleteCommand;
+import com.cteam.app.command.CalInsertCommand;
+import com.cteam.app.command.CalSelectCommand;
+import com.cteam.app.command.CalUpdateCommand;
 import com.cteam.app.command.cPetbarInsertCommand;
 import com.cteam.app.command.petSelectMultiCommand;
 
@@ -235,5 +239,101 @@ public class SuanController {
 	}
 	
 	
+	
+	//캘린더 아이콘 선택
+	@RequestMapping(value="/calSelect", method = {RequestMethod.GET, RequestMethod.POST}  )
+	public String calSelect(HttpServletRequest req, Model model){
+		System.out.println("calSelect()");
+		
+		model.addAttribute("calendar_date", req.getParameter("calendar_date"));	
+		
+		command = new CalSelectCommand();
+		command.execute(model);
+		
+		return "calSelect";
+	} //calSelect()
+	
+	//캘린더 아이콘 추가
+	@RequestMapping(value="/calInsert", method = {RequestMethod.GET, RequestMethod.POST}  )
+	public String calInsert(HttpServletRequest req, Model model){
+		System.out.println("calInsert()");	
+		
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} 		
+		
+		String calendar_date = (String) req.getParameter("calendar_date");
+		String calendar_icon = (String) req.getParameter("calendar_icon");
+		String calendar_memo = (String) req.getParameter("calendar_memo");
+		String calendar_hour = (String) req.getParameter("calendar_hour");
+		String calendar_minute = (String) req.getParameter("calendar_minute");
+		
+		System.out.println(calendar_date);
+		System.out.println(calendar_icon);
+		System.out.println(calendar_memo);
+		System.out.println(calendar_hour);
+		System.out.println(calendar_minute);
+		
+		model.addAttribute("calendar_date", calendar_date);
+		model.addAttribute("calendar_icon", calendar_icon);
+		model.addAttribute("calendar_memo", calendar_memo);	
+		model.addAttribute("calendar_hour", calendar_hour);
+		model.addAttribute("calendar_minute", calendar_minute);	
+		
+		command = new CalInsertCommand();
+		command.execute(model);
+		
+		return "calInsert";
+	} //calInsert()
+	
+	//캘린더 아이콘 변경
+	@RequestMapping(value="/calUpdate", method = {RequestMethod.GET, RequestMethod.POST}  )
+	public void calUpdate(HttpServletRequest req, Model model){
+		System.out.println("calUpdate()");	
+		
+		try {
+			req.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} 		
+		
+		String calendar_date = (String) req.getParameter("calendar_date");
+		String calendar_icon = (String) req.getParameter("calendar_icon");
+		String calendar_memo = (String) req.getParameter("calendar_memo");
+		String calendar_hour = (String) req.getParameter("calendar_hour");
+		String calendar_minute = (String) req.getParameter("calendar_minute");
+		
+		System.out.println(calendar_date);
+		System.out.println(calendar_icon);
+		System.out.println(calendar_memo);
+		
+		model.addAttribute("calendar_date", calendar_date);
+		model.addAttribute("calendar_icon", calendar_icon);
+		model.addAttribute("calendar_memo", calendar_memo);	
+		model.addAttribute("calendar_hour", calendar_hour);
+		model.addAttribute("calendar_minute", calendar_minute);	
+		
+		command = new CalUpdateCommand();
+		command.execute(model);
+
+	} //calUpdate()
+	
+	//캘린더 아이콘 삭제
+	@RequestMapping(value="/calDelete", method = {RequestMethod.GET, RequestMethod.POST})
+	public void calDelete(HttpServletRequest req, Model model){
+		System.out.println("calDelete()");		
+		
+		model.addAttribute("calendar_icon", req.getParameter("calendar_icon"));		
+				
+		System.out.println((String)req.getParameter("calendar_icon"));
+		
+		command = new CalDeleteCommand();
+		command.execute(model);	
+		
+	}
+
+
 
 }

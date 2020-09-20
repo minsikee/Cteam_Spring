@@ -11,6 +11,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.cteam.app.dto.CalDTO;
 import com.cteam.app.dto.MemberDTO1;
 import com.cteam.app.dto.PetSelectDTO;
 
@@ -421,10 +422,213 @@ public int cPetbarInsertMulti(String date,String memo,String icon, String hour, 
 		}
 		
 		return state;
+		
+	}
+		//캘린더 아이콘 삽입
+		public int calInsert(String calendar_date, String calendar_icon, String calendar_memo,String calendar_hour,String calendar_minute) {
+			
+			Connection connection = null;
+			PreparedStatement prepareStatement = null;
+			ResultSet resultSet = null;
+			
+			int state = -1;
+		
+			try {
+				connection = dataSource.getConnection();
+				String query = "insert into calendar(calendar_date, calendar_icon, calendar_memo, calendar_hour, calendar_minute) "
+						 + "values('" + calendar_date + "','" + calendar_icon + "','" + calendar_memo + "','"+calendar_hour+"','"+calendar_minute+"')";
+				
+				
+				prepareStatement = connection.prepareStatement(query);
+				state = prepareStatement.executeUpdate();
+		
+				if (state > 0) {
+					System.out.println("삽입성공");
+					
+				} else {
+					System.out.println("삽입실패");
+				}
+		
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (resultSet != null) {
+						resultSet.close();
+					}
+					if (prepareStatement != null) {
+						prepareStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				} 
+			}
+		
+			return state;
+		
+		} //calUpdate()
+	    
+		//캘린더 아이콘 변경
+		public int calUpdate(String calendar_date, String calendar_icon, String calendar_memo,String calendar_hour,String calendar_minute) {
+			
+			Connection connection = null;
+			PreparedStatement prepareStatement = null;
+			ResultSet resultSet = null;
+			
+			int state = -1;
+		
+			try {		
+				connection = dataSource.getConnection();
+				String query = "update calendar set " 			             
+			             + "calendar_icon = '" + calendar_icon + "' "
+			             + ", calendar_memo = '" + calendar_memo + "' "
+			             + ", calendar_hour = '" + calendar_hour + "' "
+			             + ", calendar_minute = '" + calendar_minute + "' "
+						 + " where calendar_date = " + calendar_date;
+				
+				prepareStatement = connection.prepareStatement(query);
+				state = prepareStatement.executeUpdate();
+		
+				if (state > 0) {
+					System.out.println("수정성공");
+					
+				} else {
+					System.out.println("수정실패");
+				}
+		
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (resultSet != null) {
+						resultSet.close();
+					}
+					if (prepareStatement != null) {
+						prepareStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+		
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+		
+				}
+			}
+			
+		return state;
+		
+		} //calUpdate()
+
+		//캘린더 아이콘 선택
+		public ArrayList<CalDTO> calSelect(String calendar_date) {
+			
+			ArrayList<CalDTO> caldtos = new ArrayList<CalDTO>();
+			Connection connection = null;
+			PreparedStatement prepareStatement = null;
+			ResultSet resultSet = null;		
+			
+			System.out.println("날짜" + calendar_date);
+			
+			try {
+				connection = dataSource.getConnection();
+				String query = "select calendar_date, calendar_icon, calendar_memo,calendar_hour,calendar_minute "					
+								+ " from calendar" 
+								+ " where calendar_date='" + calendar_date + "'";
+				prepareStatement = connection.prepareStatement(query);
+				resultSet = prepareStatement.executeQuery();
+				
+				while (resultSet.next()) {
+					calendar_date = resultSet.getString("calendar_date");
+					String calendar_icon = resultSet.getString("calendar_icon");
+					String calendar_memo = resultSet.getString("calendar_memo");
+					String calendar_hour = resultSet.getString("calendar_hour");
+					String calendar_minute = resultSet.getString("calendar_minute");
+
+					CalDTO caldto = new CalDTO(calendar_date, calendar_icon, calendar_memo,calendar_hour,calendar_minute);
+					caldtos.add(caldto);			
+				}	
+				
+				System.out.println("caldto크기" + caldtos.size());
+				
+			} catch (Exception e) {		
+				System.out.println(e.getMessage());
+			} finally {
+				try {							
+					if (resultSet != null) {
+						resultSet.close();
+					}
+					if (prepareStatement != null) {
+						prepareStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}	
+				} catch (Exception e) {
+					e.printStackTrace();
+				} finally {
+
+				}
+			}
+			
+			return caldtos;
+			
+		} //calSelect()
+		
+		//캘린더 아이콘 삭제
+		public int calDelete(String calendar_icon) {
+			
+			Connection connection = null;
+			PreparedStatement prepareStatement = null;
+			ResultSet resultSet = null;
+			
+			int state = -1;
+
+			try {
+				connection = dataSource.getConnection();
+				String query = "delete from calendar where calendar_icon='" + calendar_icon +"'";
+				
+				System.out.println(calendar_icon);
+
+				prepareStatement = connection.prepareStatement(query);
+				state = prepareStatement.executeUpdate();
+
+				if (state > 0) {
+					System.out.println("삭제성공");				
+				} else {
+					System.out.println("삭제실패");
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if (resultSet != null) {
+						resultSet.close();
+					}
+					if (prepareStatement != null) {
+						prepareStatement.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
+			return state;
+
+		} //calDelete()
 	}
   
 	
-}
+
   
 
     
