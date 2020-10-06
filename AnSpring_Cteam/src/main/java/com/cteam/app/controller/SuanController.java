@@ -244,23 +244,6 @@ public class SuanController {
 		
 		return "cPetbarInsertMulti";
 	}
-	
-	
-	
-	//캘린더 아이콘 선택
-	@RequestMapping(value="/calSelect", method = {RequestMethod.GET, RequestMethod.POST}  )
-	public String calSelect(HttpServletRequest req, Model model){
-		System.out.println("calSelect()");
-		
-		model.addAttribute("calendar_date", req.getParameter("calendar_date"));	
-		model.addAttribute("petname", req.getParameter("petname"));	
-
-		command = new CalSelectCommand();
-		command.execute(model);
-		
-		
-		return "calSelect";
-	} //calSelect()
 			
 
 	//
