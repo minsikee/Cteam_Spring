@@ -1,0 +1,21 @@
+_type=json&
+
+공공데이터키
+private String key 
+= "FPgj2NXbJw46TcGkmAfZEiYFDbxilys7KLjk3KaB7AfeJE00ZhPNM0M8unwbsI69fSmT8SNfVEimE6ZZ2U14hA%3D%3D"; 
+
+
+{"member_id":"c","member_pw":"c","member_name":"c","member_question":"당신의 꿈","member_answer":"우주정복","member_phonenum":"0123456789"}
+
+[{"petPhoto_imgpath":"http://192.168.0.31:8080/app/resources/My20200730_030847.jpg","petPhoto_content":"어쩌고저쩌고","petPhoto_date":"20/09/24","petName":"초롱이","petPhoto_no":1}]
+
+http://apis.data.go.kr/B551182/pharmacyInfoService/getParmacyBasisList
+
+
+{"response":{"header":{"resultCode":"00","resultMsg":"NORMAL SERVICE."},"body":{"items":{"item":[{"addr":"충청북도 청주시 흥덕구 복대로 143 1층 (복대동)","clCd":81,"clCdNm":"약국","emdongNm":"복대동","estbDd":20060328,"postNo":28599,"sgguCd":330102,"sgguCdNm":"청주흥덕구","sidoCd":330000,"sidoCdNm":"충북","telno":"043-233-6975","XPos":"127.4407280","YPos":36.6292939,"yadmNm":"새생명약국","ykiho":"JDQ4MTYyMiM1MSMkMSMkOCMkMDMkMzgxOTYxIzIxIyQxIyQxIyQ3OSQzNjEwMDIjNjEjJDEjJDQjJDgz"},{"addr":"경상북도 경주시 외동읍 입실로 75 (외동읍)","clCd":81,"clCdNm":"약국","emdongNm":"외동읍","estbDd":20061117,"postNo":38213,"sgguCd":370100,"sgguCdNm":"경주시","sidoCd":370000,"sidoCdNm":"경북","telno":"054-741-0210","XPos":129.3240507,"YPos":35.7149715,"yadmNm":"강남온누리약국","ykiho":"JDQ4MTYyMiM4MSMkMSMkMCMkMDMkMzgxNzAyIzUxIyQxIyQxIyQxMyQ0NjE0ODEjODEjJDEjJDYjJDgz"},{"addr":"서울특별시 중랑구 용마산로 434 1층 (면목동)","clCd":81,"clCdNm":"약국","emdongNm":"면목동","estbDd":20150123,"postNo":"02189","sgguCd":110019,"sgguCdNm":"중랑구","sidoCd":110000,"sidoCdNm":"서울","telno":"02-2293-9311","XPos":127.0973845,"YPos":37.5899757,"yadmNm":"일층약국","ykiho":"JDQ4MTg4MSM1MSMkMSMkMCMkMDMkNDgxMTkxIzExIyQxIyQzIyQ3OSQyNjE4MzIjNDEjJDEjJDgjJDgz"},{"addr":"전라남도 강진군 강진읍 중앙로 93 (강진읍)","clCd":81,"clCdNm":"약국","emdongNm":"강진읍","estbDd":19611101,"postNo":59235,"sgguCd":360001,"sgguCdNm":"강진군","sidoCd":360000,"sidoCdNm":"전남","telno":"061-433-7575","XPos":126.7673669,"YPos":34.6386027,"yadmNm":"대한약국","ykiho":"JDQ4MTYyMiM3MSMkMSMkMCMkMDMkMzgxMzUxIzUxIyQxIyQ1IyQ4MiQzNjE4MzIjNjEjJDEjJDQjJDgz"},{"addr":"대구광역시 서구 서대구로62길 47 (비산동)","clCd":81,"clCdNm":"약국","emdongNm":"비산동","estbDd":20040628,"postNo":41713,"sgguCd":230004,"sgguCdNm":"대구서구","sidoCd":230000,"sidoCdNm":"대구","telno":"053-352-0660","XPos":128.5618138,"YPos":35.8860391,"yadmNm":"대지약국","ykiho":"JDQ4MTYyMiM4MSMkMSMkMCMkMDMkMzgxNzAyIzMxIyQyIyQ3IyQwMCQ0NjEwMDIjNDEjJDEjJDgjJDgz"},{"addr":"경기도 평택시 탄현로 322 (지산동)","clCd":81,"clCdNm":"약국","emdongNm":"지산동","estbDd":20140102,"postNo":17757,"sgguCd":311200,"sgguCdNm":"평택시","sidoCd":310000,"sidoCdNm":"경기","telno":"031-666-7289","XPos":127.0560596,"YPos":37.0809741,"yadmNm":"녹십자약국","ykiho":"JDU4MTI3MSM1MSMkMSMkMCMkMDMkMzgxMzUxIzIxIyQxIyQxIyQ5MiQzNjEyMjIjNjEjJDEjJDAjJDgz"},{"addr":"전라북도 완주군 봉동읍 봉동로 155 ()","clCd":81,"clCdNm":"약국","estbDd":20011019,"postNo":55326,"sgguCd":350008,"sgguCdNm":"완주군","sidoCd":350000,"sidoCdNm":"전북","telno":"063-262-0211","XPos":"127.1680470","YPos":35.9388466,"yadmNm":"봉동종로약국","ykiho":"JDQ4MTYyMiM2MSMkMSMkNiMkMDMkMzgxOTYxIzExIyQxIyQzIyQ4MiQzNjEyMjIjNDEjJDEjJDgjJDgz"},{"addr":"제주특별자치도 제주시 관덕로 66 (일도일동)","clCd":81,"clCdNm":"약국","emdongNm":"일도일동","estbDd":20020511,"postNo":63192,"sgguCd":390200,"sgguCdNm":"제주시","sidoCd":390000,"sidoCdNm":"제주","telno":"064-702-2255","XPos":126.5262624,"YPos":33.5128775,"yadmNm":"정성약국","ykiho":"JDQ4MTYyMiM4MSMkMSMkOCMkMDMkMzgxMzUxIzIxIyQxIyQxIyQ5OSQzNjEyMjIjNjEjJDEjJDAjJDgz"},{"addr":"부산광역시 수영구 수영로 710-1 102호 (광안동)","clCd":81,"clCdNm":"약국","emdongNm":"광안동","estbDd":20130201,"postNo":48266,"sgguCd":210014,"sgguCdNm":"부산수영구","sidoCd":210000,"sidoCdNm":"부산","telno":"051-761-4222","XPos":129.1172176,"YPos":35.1677173,"yadmNm":"이화메디컬약국","ykiho":"JDQ4MTAxMiM1MSMkMSMkMCMkMDMkMzgxMTkxIzQxIyQxIyQ3IyQ4OSQ0NjE0ODEjNjEjJDEjJDAjJDgz"},{"addr":"대구광역시 북구 팔달로 189 1층 (노원동2가)","clCd":81,"clCdNm":"약국","emdongNm":"노원동2가","estbDd":20031211,"postNo":41558,"sgguCd":230003,"sgguCdNm":"대구북구","sidoCd":230000,"sidoCdNm":"대구","telno":"053-358-9696","XPos":128.5707314,"YPos":35.8885919,"yadmNm":"형우당약국","ykiho":"JDQ4MTYyMiM4MSMkMSMkMCMkMDMkMzgxMzUxIzMxIyQxIyQ3IyQwMyQ0NjE0ODEjNTEjJDEjJDIjJDgz"}]},"numOfRows":10,"pageNo":1,"totalCount":23267}}}
+
+
+
+구글 api 키
+AIzaSyCsrerDHJrp9Wu09Ij7MUELxCTPiYfxfBI
+
