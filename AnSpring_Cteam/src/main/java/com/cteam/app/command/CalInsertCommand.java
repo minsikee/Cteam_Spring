@@ -15,8 +15,10 @@ public class CalInsertCommand implements AnCommand {
 		String calendar_memo = (String) model.asMap().get("calendar_memo");
 		String calendar_hour = (String) model.asMap().get("calendar_hour");
 		String calendar_minute = (String) model.asMap().get("calendar_minute");
+		String petname = (String) model.asMap().get("petname");
+
 		CDao cdao = new CDao();
-		cdao.calInsert(calendar_date, calendar_icon, calendar_memo, calendar_hour,calendar_minute);
+		cdao.calInsert(calendar_date, calendar_icon, calendar_memo, calendar_hour,calendar_minute,petname);
 
 		
 	}

@@ -1,7 +1,8 @@
-package com.cteam.app.command;
+package com.cteam.app.command.jin;
 
 import org.springframework.ui.Model;
 
+import com.cteam.app.command.AnCommand;
 import com.cteam.app.dao.CDao;
 
 public class AnModifyCommand implements AnCommand {

@@ -25,7 +25,9 @@
     <!--
     <Manager pathname="" />
     -->
-    
+    <!-- 
+     url="jdbc:oracle:thin:@192.168.0.200:1521:xe" -->
+      <!--  url="jdbc:oracle:thin:@112.164.58.7:1521:xe" -->
     <Resource auth="Container"
         driverClassName="oracle.jdbc.driver.OracleDriver"
         maxActive="50"
@@ -33,7 +35,7 @@
         name="cteam"
         password="cteam"
         type="javax.sql.DataSource"
-        url="jdbc:oracle:thin:@192.168.0.200:1521:xe"
+	    url="jdbc:oracle:thin:@112.164.58.7:1521:xe"
         username="cteam"
     />  
 </Context>

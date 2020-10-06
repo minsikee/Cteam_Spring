@@ -9,17 +9,27 @@ public class CalDTO {
 	String calendar_memo;
 	String calendar_hour;
 	String calendar_minute;
+	String calendar_id;
 	
 	public CalDTO(){}
 
 	public CalDTO(String calendar_date, String calendar_icon, String calendar_memo, String calendar_hour,
-			String calendar_minute) {
+			String calendar_minute,String calendar_id) {
 		super();
 		this.calendar_date = calendar_date;
 		this.calendar_icon = calendar_icon;
 		this.calendar_memo = calendar_memo;
 		this.calendar_hour = calendar_hour;
 		this.calendar_minute = calendar_minute;
+		this.calendar_id=calendar_id;
+	}
+
+	public String getCalendar_id() {
+		return calendar_id;
+	}
+
+	public void setCalendar_id(String calendar_id) {
+		this.calendar_id = calendar_id;
 	}
 
 	public String getCalendar_date() {

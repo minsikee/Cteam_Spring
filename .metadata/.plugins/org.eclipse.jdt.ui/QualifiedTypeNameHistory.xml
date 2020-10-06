@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.cteam.app.command.AnCommand"/>
 <fullyQualifiedTypeName name="com.cteam.app.dto.MemberDTO1"/>
 <fullyQualifiedTypeName name="com.cteam.app.command.AnLoginCommand"/>
-<fullyQualifiedTypeName name="com.cteam.app.dao.CDao"/>
 <fullyQualifiedTypeName name="com.cteam.app.command.AnPwUpdateCommand"/>
+<fullyQualifiedTypeName name="com.cteam.app.command.cPetPhotoSelectCommand"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.cteam.app.dto.petPhotoDTO"/>
+<fullyQualifiedTypeName name="com.cteam.app.dto.PetDTO"/>
+<fullyQualifiedTypeName name="com.cteam.app.dao.CDao"/>
+<fullyQualifiedTypeName name="com.cteam.app.command.PetPhotoInsertCommand"/>
+<fullyQualifiedTypeName name="com.cteam.app.command.AnCommand"/>
+<fullyQualifiedTypeName name="com.cteam.app.command.petPhotoDeleteCommand"/>
 </qualifiedTypeNameHistroy>

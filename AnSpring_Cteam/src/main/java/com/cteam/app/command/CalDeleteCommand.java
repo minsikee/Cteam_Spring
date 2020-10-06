@@ -8,10 +8,10 @@ public class CalDeleteCommand implements AnCommand {
 
 	@Override
 	public void execute(Model model) {
-		String calendar_icon = (String) model.asMap().get("calendar_icon");
+		String calendar_id = (String) model.asMap().get("calendar_id");
 		
 		CDao cdao = new CDao();
-		cdao.calDelete(calendar_icon);
+		cdao.calDelete(calendar_id);
 		
 	}
 

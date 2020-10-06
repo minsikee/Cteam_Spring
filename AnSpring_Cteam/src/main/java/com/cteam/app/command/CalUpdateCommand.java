@@ -14,9 +14,10 @@ public class CalUpdateCommand implements AnCommand {
 		String calendar_memo = (String) model.asMap().get("calendar_memo");
 		String calendar_hour = (String) model.asMap().get("calendar_hour");
 		String calendar_minute = (String) model.asMap().get("calendar_minute");
+		String calendar_id = (String) model.asMap().get("calendar_id");
 		
 		CDao cdao = new CDao();
-		cdao.calUpdate(calendar_date, calendar_icon, calendar_memo, calendar_hour,calendar_minute);
+		cdao.calUpdate(calendar_date, calendar_icon, calendar_memo, calendar_hour,calendar_minute,calendar_id);
 		
 	}
 	

@@ -32,8 +32,15 @@ import com.cteam.app.command.CalDeleteCommand;
 import com.cteam.app.command.CalInsertCommand;
 import com.cteam.app.command.CalSelectCommand;
 import com.cteam.app.command.CalUpdateCommand;
+import com.cteam.app.command.CalcalSelectCommand;
+import com.cteam.app.command.PetPhotoInsertCommand;
+import com.cteam.app.command.cPetPhotoSelectCommand;
 import com.cteam.app.command.cPetbarInsertCommand;
+import com.cteam.app.command.petPhotoDeleteCommand;
+import com.cteam.app.command.petPhotoUpdateMultiCommand;
+import com.cteam.app.command.petPhotoUpdateMultiNoCommand;
 import com.cteam.app.command.petSelectMultiCommand;
+import com.cteam.app.command.jin.AnPetInsertCommand;
 
 @Controller
 public class SuanController {
@@ -246,9 +253,11 @@ public class SuanController {
 		System.out.println("calSelect()");
 		
 		model.addAttribute("calendar_date", req.getParameter("calendar_date"));	
-		
+		model.addAttribute("petname", req.getParameter("petname"));	
+
 		command = new CalSelectCommand();
 		command.execute(model);
+		
 		
 		return "calSelect";
 	} //calSelect()
@@ -269,6 +278,8 @@ public class SuanController {
 		String calendar_memo = (String) req.getParameter("calendar_memo");
 		String calendar_hour = (String) req.getParameter("calendar_hour");
 		String calendar_minute = (String) req.getParameter("calendar_minute");
+		String petname = (String) req.getParameter("petname");
+
 		
 		System.out.println(calendar_date);
 		System.out.println(calendar_icon);
@@ -281,6 +292,8 @@ public class SuanController {
 		model.addAttribute("calendar_memo", calendar_memo);	
 		model.addAttribute("calendar_hour", calendar_hour);
 		model.addAttribute("calendar_minute", calendar_minute);	
+		model.addAttribute("petname", petname);	
+
 		
 		command = new CalInsertCommand();
 		command.execute(model);
@@ -304,6 +317,8 @@ public class SuanController {
 		String calendar_memo = (String) req.getParameter("calendar_memo");
 		String calendar_hour = (String) req.getParameter("calendar_hour");
 		String calendar_minute = (String) req.getParameter("calendar_minute");
+		String calendar_id = (String) req.getParameter("calendar_id");
+
 		
 		System.out.println(calendar_date);
 		System.out.println(calendar_icon);
@@ -314,6 +329,7 @@ public class SuanController {
 		model.addAttribute("calendar_memo", calendar_memo);	
 		model.addAttribute("calendar_hour", calendar_hour);
 		model.addAttribute("calendar_minute", calendar_minute);	
+		model.addAttribute("calendar_id", calendar_id);	
 		
 		command = new CalUpdateCommand();
 		command.execute(model);
@@ -325,15 +341,267 @@ public class SuanController {
 	public void calDelete(HttpServletRequest req, Model model){
 		System.out.println("calDelete()");		
 		
-		model.addAttribute("calendar_icon", req.getParameter("calendar_icon"));		
+		model.addAttribute("calendar_id", req.getParameter("calendar_id"));		
 				
-		System.out.println((String)req.getParameter("calendar_icon"));
+		System.out.println((String)req.getParameter("calendar_id"));
 		
 		command = new CalDeleteCommand();
 		command.execute(model);	
 		
 	}
+	
+	//캘린더 아이콘 붙이기
+		@RequestMapping(value="/calcalSelect", method = {RequestMethod.GET, RequestMethod.POST}  )
+		public String calcalSelect(HttpServletRequest req, Model model){
+			System.out.println("calcalSelect()");
+			
+			
+			model.addAttribute("petname", req.getParameter("petname"));	
 
+			command = new CalcalSelectCommand();
+			command.execute(model);
+			
+			
+			return "calcalSelect";
+		} //calcalSelect()
+		
 
+	//
+		//갤러리(피드) 셀렉트
+		
+		@RequestMapping(value="/cPetPhotoSelect", method = {RequestMethod.GET, RequestMethod.POST}  )
+		public String anSelectMulti(HttpServletRequest req, Model model){
+			System.out.println("cPetPhotoSelectMulti()");
+			
+			String petName = (String) req.getParameter("petName");
+			String member_id = (String) req.getParameter("member_id");
+			
+			//받으면 찍어본다
+			System.out.println(member_id);
+			System.out.println(petName);
+			
+			model.addAttribute("member_id", member_id);
+			model.addAttribute("petName", petName);
+			
+			
+			command = new cPetPhotoSelectCommand();
+			command.execute(model);
+			
+			return "cPetPhotoSelect";
+		}
+		
+		
+		//사진첩 사진 등록
+		@RequestMapping(value="/PetPhotoInsert", method = {RequestMethod.GET, RequestMethod.POST}  )
+		public String cPetInsert(HttpServletRequest req, Model model){
+			System.out.println("PetPhotoInsert()");	
+			
+			try {
+				req.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 		
+			
+			String petName = (String) req.getParameter("petName");
+			String member_id = (String) req.getParameter("member_id");
+			String PetPhoto_content = (String) req.getParameter("PetPhoto_content");
+			String imageDbPathA = (String) req.getParameter("imageDbPathA");
+			
+		
+			
+			System.out.println(petName);
+			System.out.println(member_id);
+			System.out.println(PetPhoto_content);
+			System.out.println(imageDbPathA);
+			
+			model.addAttribute("petName", petName);
+			model.addAttribute("member_id", member_id);
+			model.addAttribute("PetPhoto_content", PetPhoto_content);	
+			model.addAttribute("imageDbPathA", imageDbPathA);	
+	
+
+			
+			MultipartRequest multi = (MultipartRequest)req;
+			MultipartFile file = multi.getFile("image");
+			
+				
+			if(file != null) {
+				String fileName = file.getOriginalFilename();
+				System.out.println(fileName);
+				
+				// 디렉토리 존재하지 않으면 생성
+				makeDir(req);	
+					
+				if(file.getSize() > 0){			
+					String realImgPath = req.getSession().getServletContext()
+							.getRealPath("/resources/");
+					
+					System.out.println( fileName + " : " + realImgPath);
+					System.out.println( "fileSize : " + file.getSize());					
+													
+				 	try {
+				 		// 이미지파일 저장
+						file.transferTo(new File(realImgPath, fileName));										
+					} catch (Exception e) {
+						e.printStackTrace();
+					} 
+										
+				}else{
+					// 이미지파일 실패시
+					fileName = "FileFail.jpg";
+					String realImgPath = req.getSession().getServletContext()
+							.getRealPath("/resources/" + fileName);
+					System.out.println(fileName + " : " + realImgPath);
+							
+					}			
+				
+				}
+					
+				command = new PetPhotoInsertCommand();
+				command.execute(model);
+			
+				return "PetPhotoInsert";
+		
+			}	
+		
+		//사진첩 게시글 삭제
+		@RequestMapping(value="/petPhotoDelete", method = {RequestMethod.GET, RequestMethod.POST})
+		public void petPhotoDelete(HttpServletRequest req, Model model){
+			System.out.println("petPhotoDelete()");		
+			
+			model.addAttribute("petPhoto_no", req.getParameter("petPhoto_no"));		
+					
+			System.out.println((String)req.getParameter("petPhoto_no"));
+			
+			command = new petPhotoDeleteCommand();
+			command.execute(model);	
+			
+		}
+		
+
+		//디렉토리가 존재하지 않을 때(이미지첨부시사용)
+		public void makeDir(HttpServletRequest req){
+			File f = new File(req.getSession().getServletContext()
+					.getRealPath("/resources"));
+			if(!f.isDirectory()){
+			f.mkdir();
+			}	
+		}
+		
+		@RequestMapping(value="/petPhotoUpdateMulti", method = {RequestMethod.GET, RequestMethod.POST})
+		public void anUpdateMulti(HttpServletRequest req, Model model){
+			System.out.println("petPhotoUpdateMulti()");	
+			
+			try {
+				req.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}  
+			
+			String petPhoto_no = (String) req.getParameter("petPhoto_no");
+			String petPhoto_content = (String) req.getParameter("petPhoto_content");
+			String dbImgPath = (String) req.getParameter("dbImgPath");
+			String pDbImgPath = (String) req.getParameter("pDbImgPath");
+			
+			System.out.println(petPhoto_no);
+			System.out.println(petPhoto_content);
+			System.out.println("Sub1Update:dbImgPath " + dbImgPath);
+			System.out.println("Sub1Update:pDbImgPath " + pDbImgPath);
+			
+			model.addAttribute("petPhoto_no", petPhoto_no);
+			model.addAttribute("petPhoto_content", petPhoto_content);
+			model.addAttribute("dbImgPath", dbImgPath);
+			model.addAttribute("pDbImgPath", pDbImgPath);
+			
+			// 이미지가 서로 같으면 삭제하지 않고 다르면 기존이미지 삭제
+			if(!dbImgPath.equals(pDbImgPath)){			
+				
+				String pFileName = req.getParameter("pDbImgPath").split("/")[req.getParameter("pDbImgPath").split("/").length -1];
+				String delDbImgPath = req.getSession().getServletContext().getRealPath("/resources/" + pFileName);
+				
+				File delfile = new File(delDbImgPath);
+				System.out.println(delfile.getAbsolutePath());
+				
+		        if(delfile.exists()) {
+		        	boolean deleteFile = false;
+		            while(deleteFile != true){
+		            	deleteFile = delfile.delete();
+		            }	            
+		            
+		        }//if(delfile.exists())
+			
+			}//if(!dbImgPath.equals(pDbImgPath))  
+			
+			MultipartRequest multi = (MultipartRequest)req;
+			MultipartFile file = null;
+			
+			file = multi.getFile("image");
+				
+			if(file != null) {
+				String fileName = file.getOriginalFilename();
+				System.out.println(fileName);
+				
+				// 디렉토리 존재하지 않으면 생성
+				makeDir(req);	
+					
+				if(file.getSize() > 0){			
+					String realImgPath = req.getSession().getServletContext()
+							.getRealPath("/resources/");
+					
+					System.out.println( fileName + " : " + realImgPath);
+					System.out.println( "fileSize : " + file.getSize());					
+													
+				 	try {
+				 		// 이미지파일 저장
+						file.transferTo(new File(realImgPath, fileName));						
+					} catch (Exception e) {
+						e.printStackTrace();
+					} 
+										
+				}else{
+					fileName = "FileFail.jpg";
+					String realImgPath = req.getSession().getServletContext()
+							.getRealPath("/resources/" + fileName);
+					System.out.println(fileName + " : " + realImgPath);
+							
+				}			
+				
+			}
+			
+			command = new petPhotoUpdateMultiCommand();
+			command.execute(model);		
+			
+		}
+		
+		@RequestMapping(value="/petPhotoUpdateMultiNo", method = {RequestMethod.GET, RequestMethod.POST})
+		public void anUpdateMultiNo(HttpServletRequest req, Model model){
+			System.out.println("anUpdateMultiNo()");	
+			
+			try {
+				req.setCharacterEncoding("UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}  
+			
+			String petPhoto_no = (String) req.getParameter("petPhoto_no");
+			String petPhoto_content = (String) req.getParameter("petPhoto_content");	
+			
+			model.addAttribute("petPhoto_no", petPhoto_no);
+			model.addAttribute("petPhoto_content", petPhoto_content);
+			
+			command = new petPhotoUpdateMultiNoCommand();
+			command.execute(model);		
+			
+		}
+			
+		
+		
+		
+		
+		
+	
 
 }
