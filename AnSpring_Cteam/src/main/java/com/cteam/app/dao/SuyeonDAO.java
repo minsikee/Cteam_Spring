@@ -10,6 +10,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
+import com.cteam.app.dto.BoardselectDTO;
 import com.cteam.app.dto.CalDTO;
 
 public class SuyeonDAO {
@@ -286,5 +287,64 @@ public class SuyeonDAO {
 		return caldtos;
 		
 	} //calSelect()
+	
+	//내가 쓴 게시물 불러오기
+	public ArrayList<BoardselectDTO> myPostingSelect() {
+		
+		ArrayList<BoardselectDTO> myboardselectdto = new ArrayList<BoardselectDTO>();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;		
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select member_id,board_subject,board_title,board_date,board_comment,board_num"					
+							+ " from board" 
+							+ " order by board_date desc";
+			prepareStatement = connection.prepareStatement(query);
+			resultSet = prepareStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				String id = resultSet.getString("member_id");
+				String subject = resultSet.getString("board_subject");
+				String title = resultSet.getString("board_title");
+				String date = resultSet.getString("board_date"); 
+				String comment = resultSet.getString("board_comment"); 
+				int num = resultSet.getInt("board_num");
+				
+				BoardselectDTO myboardselect = new BoardselectDTO(id, subject, title, date, comment, num); 
+				myboardselectdto.add(myboardselect);
+
+			}	
+			
+			System.out.println("boardselectdto크기" + myboardselectdto.size());
+			System.out.println("boardselectdto크기" + myboardselectdto);
+			
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+		} finally {
+			try {			
+				
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (prepareStatement != null) {
+					prepareStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}	
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				
+			} finally {
+
+			}
+		}
+
+		return myboardselectdto;
+	}
 
 }

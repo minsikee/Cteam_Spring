@@ -15,6 +15,7 @@ import com.cteam.app.command.CalInsertCommand;
 import com.cteam.app.command.CalSelectCommand;
 import com.cteam.app.command.CalUpdateCommand;
 import com.cteam.app.command.CalcalSelectCommand;
+import com.cteam.app.command.MyPostingSelectCommand;
 
 @Controller
 public class SuyeonController {
@@ -134,5 +135,16 @@ public class SuyeonController {
 			
 			return "calcalSelect";
 	} //calcalSelect()
+	
+	//내가 쓴 게시물 불러오기
+	@RequestMapping(value="/myPostingSelect", method = {RequestMethod.GET, RequestMethod.POST} )
+	public String boardselect(HttpServletRequest req, Model model) {
+		System.out.println("myPostingSelect()");
+		
+		command = new MyPostingSelectCommand();
+		command.execute(model);
+		
+		return "myPostingSelect";
+	}
 
 }
