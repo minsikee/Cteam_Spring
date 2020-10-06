@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.cteam.app.command.AnCommand;
 import com.cteam.app.command.CalDeleteCommand;
 import com.cteam.app.command.CalInsertCommand;
+import com.cteam.app.command.CalSelectCommand;
 import com.cteam.app.command.CalUpdateCommand;
 import com.cteam.app.command.CalcalSelectCommand;
 
@@ -19,6 +20,21 @@ import com.cteam.app.command.CalcalSelectCommand;
 public class SuyeonController {
 	
 	AnCommand command;
+	
+	//캘린더 아이콘 선택
+	@RequestMapping(value="/calSelect", method = {RequestMethod.GET, RequestMethod.POST}  )
+	public String calSelect(HttpServletRequest req, Model model){
+		System.out.println("calSelect()");
+		
+		model.addAttribute("calendar_date", req.getParameter("calendar_date"));	
+		model.addAttribute("petname", req.getParameter("petname"));	
+
+		command = new CalSelectCommand();
+		command.execute(model);
+		
+		
+		return "calSelect";
+	} //calSelect()
 	
 	//캘린더 아이콘 추가
 	@RequestMapping(value="/calInsert", method = {RequestMethod.GET, RequestMethod.POST}  )
@@ -37,7 +53,6 @@ public class SuyeonController {
 		String calendar_hour = (String) req.getParameter("calendar_hour");
 		String calendar_minute = (String) req.getParameter("calendar_minute");
 		String petname = (String) req.getParameter("petname");
-
 		
 		System.out.println(calendar_date);
 		System.out.println(calendar_icon);
@@ -52,7 +67,6 @@ public class SuyeonController {
 		model.addAttribute("calendar_minute", calendar_minute);	
 		model.addAttribute("petname", petname);	
 
-		
 		command = new CalInsertCommand();
 		command.execute(model);
 		

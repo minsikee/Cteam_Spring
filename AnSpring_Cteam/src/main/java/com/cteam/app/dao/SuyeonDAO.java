@@ -19,15 +19,73 @@ public class SuyeonDAO {
 	public SuyeonDAO() {
 		try {
 			Context context = new InitialContext();
-			dataSource = (DataSource) context.lookup("java:/comp/env/cteam");	//context name 이랑 맞춰줘야함 team01로
+			dataSource = (DataSource) context.lookup("java:/comp/env/cteam");
 			
 		} catch (NamingException e) {
 			e.getMessage();
 		}
 	}
 	
-	//캘린더 아이콘 삽입
-	public int calInsert(String calendar_date, String calendar_icon, String calendar_memo,String calendar_hour,String calendar_minute,String petname) {
+	//캘린더 아이콘 선택
+	public ArrayList<CalDTO> calSelect(String calendar_date, String petname) {
+		
+		ArrayList<CalDTO> caldtos = new ArrayList<CalDTO>();
+		Connection connection = null;
+		PreparedStatement prepareStatement = null;
+		ResultSet resultSet = null;		
+		
+		System.out.println("날짜" + calendar_date);
+		
+		try {
+			connection = dataSource.getConnection();
+			String query = "select calendar_date, calendar_icon, calendar_memo, calendar_hour, calendar_minute, calendar_id "					
+							+ " from calendar" 
+							+ " where calendar_date='" + calendar_date + "'"
+							+ " and petname='" + petname + "'"
+							+ " order by calendar_id";
+			prepareStatement = connection.prepareStatement(query);
+			resultSet = prepareStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				calendar_date = resultSet.getString("calendar_date");
+				String calendar_icon = resultSet.getString("calendar_icon");
+				String calendar_memo = resultSet.getString("calendar_memo");
+				String calendar_hour = resultSet.getString("calendar_hour");
+				String calendar_minute = resultSet.getString("calendar_minute");
+				String calendar_id = resultSet.getString("calendar_id");
+
+				CalDTO caldto = new CalDTO(calendar_date, calendar_icon, calendar_memo, calendar_hour, calendar_minute, calendar_id);
+				caldtos.add(caldto);			
+			}	
+			
+			System.out.println("caldto크기" + caldtos.size());
+			
+		} catch (Exception e) {		
+			System.out.println(e.getMessage());
+		} finally {
+			try {							
+				if (resultSet != null) {
+					resultSet.close();
+				}
+				if (prepareStatement != null) {
+					prepareStatement.close();
+				}
+				if (connection != null) {
+					connection.close();
+				}	
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+
+			}
+		}
+		
+		return caldtos;
+		
+	} //calSelect()
+	
+	//캘린더 아이콘 추가
+	public int calInsert(String calendar_date, String calendar_icon, String calendar_memo, String calendar_hour, String calendar_minute, String petname) {
 		
 		Connection connection = null;
 		PreparedStatement prepareStatement = null;
@@ -37,7 +95,7 @@ public class SuyeonDAO {
 	
 		try {
 			connection = dataSource.getConnection();
-			String query = "insert into calendar(calendar_id,calendar_date, calendar_icon, calendar_memo, calendar_hour, calendar_minute,petname) "
+			String query = "insert into calendar(calendar_id,calendar_date, calendar_icon, calendar_memo, calendar_hour, calendar_minute, petname) "
 					 + "values(NO_SEQ.NEXTVAL,'" + calendar_date + "','" + calendar_icon + "','" + calendar_memo + "','"+calendar_hour+"','"+calendar_minute+"','"+petname+"')";
 			
 			
@@ -45,10 +103,10 @@ public class SuyeonDAO {
 			state = prepareStatement.executeUpdate();
 	
 			if (state > 0) {
-				System.out.println("삽입성공");
+				System.out.println("추가성공");
 				
 			} else {
-				System.out.println("삽입실패");
+				System.out.println("추가실패");
 			}
 	
 		} catch (Exception e) {
@@ -74,7 +132,7 @@ public class SuyeonDAO {
 	} //calUpdate()
     
 	//캘린더 아이콘 변경
-	public int calUpdate(String calendar_date, String calendar_icon, String calendar_memo,String calendar_hour,String calendar_minute,String calendar_id) {
+	public int calUpdate(String calendar_date, String calendar_icon, String calendar_memo, String calendar_hour, String calendar_minute, String calendar_id) {
 		
 		Connection connection = null;
 		PreparedStatement prepareStatement = null;
@@ -125,64 +183,6 @@ public class SuyeonDAO {
 	return state;
 	
 	} //calUpdate()
-
-	//캘린더 아이콘 선택
-	public ArrayList<CalDTO> calSelect(String calendar_date, String petname) {
-		
-		ArrayList<CalDTO> caldtos = new ArrayList<CalDTO>();
-		Connection connection = null;
-		PreparedStatement prepareStatement = null;
-		ResultSet resultSet = null;		
-		
-		System.out.println("날짜" + calendar_date);
-		
-		try {
-			connection = dataSource.getConnection();
-			String query = "select calendar_date, calendar_icon, calendar_memo,calendar_hour,calendar_minute,calendar_id "					
-							+ " from calendar" 
-							+ " where calendar_date='" + calendar_date + "'"
-							+ " and petname='" + petname + "'"
-							+ " order by calendar_id";
-			prepareStatement = connection.prepareStatement(query);
-			resultSet = prepareStatement.executeQuery();
-			
-			while (resultSet.next()) {
-				calendar_date = resultSet.getString("calendar_date");
-				String calendar_icon = resultSet.getString("calendar_icon");
-				String calendar_memo = resultSet.getString("calendar_memo");
-				String calendar_hour = resultSet.getString("calendar_hour");
-				String calendar_minute = resultSet.getString("calendar_minute");
-				String calendar_id = resultSet.getString("calendar_id");
-
-				CalDTO caldto = new CalDTO(calendar_date, calendar_icon, calendar_memo,calendar_hour,calendar_minute,calendar_id);
-				caldtos.add(caldto);			
-			}	
-			
-			System.out.println("caldto크기" + caldtos.size());
-			
-		} catch (Exception e) {		
-			System.out.println(e.getMessage());
-		} finally {
-			try {							
-				if (resultSet != null) {
-					resultSet.close();
-				}
-				if (prepareStatement != null) {
-					prepareStatement.close();
-				}
-				if (connection != null) {
-					connection.close();
-				}	
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-
-			}
-		}
-		
-		return caldtos;
-		
-	} //calSelect()
 	
 	//캘린더 아이콘 삭제
 	public int calDelete(String calendar_id) {
@@ -242,7 +242,7 @@ public class SuyeonDAO {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "select calendar_date, calendar_icon, calendar_memo,calendar_hour,calendar_minute,calendar_id "					
+			String query = "select calendar_date, calendar_icon, calendar_memo, calendar_hour, calendar_minute, calendar_id "					
 							+ " from calendar"
 							+ " where petname='" + petname + "'"
 							+ " order by calendar_date, calendar_id asc";
@@ -257,7 +257,7 @@ public class SuyeonDAO {
 				String calendar_minute = resultSet.getString("calendar_minute");
 				String calendar_id = resultSet.getString("calendar_id");
 
-				CalDTO caldto = new CalDTO(calendar_date, calendar_icon, calendar_memo, calendar_hour, calendar_minute,calendar_id);
+				CalDTO caldto = new CalDTO(calendar_date, calendar_icon, calendar_memo, calendar_hour, calendar_minute, calendar_id);
 				caldtos.add(caldto);			
 			}	
 			
