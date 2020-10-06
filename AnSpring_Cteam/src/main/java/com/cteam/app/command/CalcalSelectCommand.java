@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.springframework.ui.Model;
 
 import com.cteam.app.dao.CDao;
+import com.cteam.app.dao.SuyeonDAO;
 import com.cteam.app.dto.CalDTO;
 
 public class CalcalSelectCommand implements AnCommand{
@@ -14,8 +15,8 @@ public class CalcalSelectCommand implements AnCommand{
 		
 		String petname = (String) model.asMap().get("petname");
 
-		CDao cdao = new CDao();
-		ArrayList<CalDTO> caldtos = cdao.calcalSelect(petname);
+		SuyeonDAO sdao = new SuyeonDAO();
+		ArrayList<CalDTO> caldtos = sdao.calcalSelect(petname);
 		
 		model.addAttribute("calcalSelect", caldtos);
 		

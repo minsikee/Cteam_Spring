@@ -3,6 +3,7 @@ package com.cteam.app.command;
 import org.springframework.ui.Model;
 
 import com.cteam.app.dao.CDao;
+import com.cteam.app.dao.SuyeonDAO;
 
 public class CalUpdateCommand implements AnCommand {
 
@@ -16,8 +17,8 @@ public class CalUpdateCommand implements AnCommand {
 		String calendar_minute = (String) model.asMap().get("calendar_minute");
 		String calendar_id = (String) model.asMap().get("calendar_id");
 		
-		CDao cdao = new CDao();
-		cdao.calUpdate(calendar_date, calendar_icon, calendar_memo, calendar_hour,calendar_minute,calendar_id);
+		SuyeonDAO sdao = new SuyeonDAO();
+		sdao.calUpdate(calendar_date, calendar_icon, calendar_memo, calendar_hour,calendar_minute,calendar_id);
 		
 	}
 	
