@@ -448,12 +448,12 @@ public int cPetbarInsertMulti(String date,String memo,String icon, String hour, 
 				prepareStatement = connection.prepareStatement(query);
 				state = prepareStatement.executeUpdate();
 		
-				if (state > 0) {
-					System.out.println("수정성공");
-					
-				} else {
-					System.out.println("수정실패");
-				}
+//				if (state > 0) {
+//					System.out.println("수정성공");
+//					
+//				} else {
+//					System.out.println("수정실패");
+//				}
 		
 			} catch (Exception e) {
 				e.printStackTrace();
