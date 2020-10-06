@@ -26,7 +26,7 @@ public class BoardController {
 	//게시판 메인
 	@RequestMapping(value="/boardselect", method = {RequestMethod.GET, RequestMethod.POST} )
 	public String boardselect(HttpServletRequest req, Model model) {
-		System.out.println("boardselect()");
+		System.out.println("컨트롤러 : boardselect()");
 		
 		command = new BoardSelectCommand();
 		command.execute(model);
@@ -53,10 +53,12 @@ public class BoardController {
 		String board_city = (String) req.getParameter("city");
 		String board_region = (String) req.getParameter("region");
 		String board_imagepath = (String) req.getParameter("dbImgPath");
+		String Petimage_path = (String) req.getParameter("Petimage_path");
 
 
 
-		System.out.println(member_id+board_subject+board_title+board_content+board_city+board_region+board_imagepath);
+		System.out.println("컨트롤러boardinsert : " +member_id+board_subject+board_title+
+				board_content+board_city+board_region+board_imagepath+Petimage_path);
 		
 		model.addAttribute("member_id", member_id);
 		model.addAttribute("board_subject", board_subject);
@@ -65,6 +67,7 @@ public class BoardController {
 		model.addAttribute("board_city", board_city);
 		model.addAttribute("board_region", board_region);
 		model.addAttribute("board_imagepath", board_imagepath);
+		model.addAttribute("Petimage_path", Petimage_path);
 	
 		MultipartRequest multi = (MultipartRequest) req;
 		MultipartFile file = multi.getFile("image");
@@ -104,30 +107,30 @@ public class BoardController {
 			
 		command = new boardinsertCommand();
 		command.execute(model);
-		
+
 		return "board/boardinsert";
 	}
 
 	//게시판 상세보기 요청
-	@RequestMapping("/boardDetail")
+	@RequestMapping("/boarddetail")
 	public String boarddetail(HttpServletRequest req, Model model) {
 		System.out.println("boarddetail()");
-		
+
 		try {
 			req.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		
-		int board_num = Integer.parseInt(req.getParameter("board_num"));
-		
-		System.out.println(board_num);
+
+		int board_num = Integer.parseInt(req.getParameter("num"));
+
+		System.out.println("컨트롤러 boarddetail :" + board_num);
 
 		model.addAttribute("board_num", board_num);
-		
+
 		command = new BoardDetailCommand();
 		command.execute(model);
-		
+
 		return "board/boarddetail";
 	}
 	

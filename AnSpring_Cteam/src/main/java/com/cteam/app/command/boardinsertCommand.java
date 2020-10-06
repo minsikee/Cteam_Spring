@@ -18,10 +18,10 @@ public class boardinsertCommand implements AnCommand {
 		String board_city = (String)model.asMap().get("board_city");
 		String board_region = (String)model.asMap().get("board_region");
 		String board_imagepath = (String)model.asMap().get("board_imagepath");
-
+		String Petimage_path = (String)model.asMap().get("Petimage_path");
 		
 		BoardDAO boarddao = new BoardDAO();
-		int state = boarddao.boardinsert(member_id,board_subject,board_title,board_content,board_city,board_region,board_imagepath);
+		int state = boarddao.boardinsert(member_id,board_subject,board_title,board_content,board_city,board_region,board_imagepath, Petimage_path);
 		
 		model.addAttribute("state", state);
 	}	 

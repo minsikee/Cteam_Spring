@@ -1,15 +1,16 @@
 package com.cteam.app.dto;
 
 public class BoardselectDTO {
-	String id, subject, title, date,comment;
+	String id, subject, title, city, region, date;
 	int num;
-	public BoardselectDTO(String id, String subject, String title, String date,String comment, int num ) {
+	public BoardselectDTO(String id, String subject, String title, String city, String region, String date, int num ) {
 		super();
 		this.id = id;
 		this.subject = subject;
 		this.title = title;
+		this.city = city;
+		this.region = region;
 		this.date = date;
-		this.comment = comment;
 		this.num = num;
 	}
 	public String getId() {
@@ -30,17 +31,23 @@ public class BoardselectDTO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getRegion() {
+		return region;
+	}
+	public void setRegion(String region) {
+		this.region = region;
+	}
 	public String getDate() {
 		return date;
 	}
 	public void setDate(String date) {
 		this.date = date;
-	}
-	public String getComment() {
-		return comment;
-	}
-	public void setComment(String comment) {
-		this.comment = comment;
 	}
 	public int getNum() {
 		return num;
